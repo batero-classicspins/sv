@@ -1,0 +1,337 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Slots Vacation · New-User Funnel Report</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#f6f5f2;--card:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--ink3:#7a7974;--line:#e4e2dc;--track:#efeee9;
+--accent:#2a78d6;--warn:#b25e00;--crit:#d03b3b;--good:#0a7f0a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 64px}
+header.cover{background:#0d366b;color:#fff;border-radius:16px;padding:32px 32px 28px;margin-bottom:24px}
+header.cover h1{margin:0 0 6px;font-size:30px;letter-spacing:-.01em}
+header.cover .sub{color:#cde2fb;font-size:15px}
+header.cover .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;color:#b7d3f6}
+header.cover .meta b{color:#fff;font-weight:600}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+nav.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink2);text-decoration:none;font-size:13px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:0 0 22px}
+h2{font-size:21px;margin:0 0 4px;letter-spacing:-.01em}
+h2 .num{color:var(--accent);margin-right:8px}
+.lede{color:var(--ink2);margin:0 0 18px}
+h3{font-size:15.5px;margin:26px 0 10px}
+h4{font-size:14px;margin:18px 0 6px}
+p,li{color:#222}
+ul,ol{padding-left:20px;margin:6px 0}
+li{margin:3px 0}
+.callout{border-left:4px solid var(--accent);background:#eef4fc;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.callout.warn{border-color:#eda100;background:#fdf6e6}
+.callout.crit{border-color:var(--crit);background:#fbeeee}
+.callout.good{border-color:var(--good);background:#edf7ed}
+.callout b:first-child{display:block;margin-bottom:2px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0 6px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+.tv{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.tl{color:var(--ink2);font-size:12.5px;margin-top:4px}
+.hbars{margin:8px 0 4px}
+.hrow,.grow{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;align-items:center;padding:4px 0}
+.hrow .hnote{grid-column:2;color:var(--ink3);font-size:12px;margin-top:-2px}
+.hrow.hl .hlabel{font-weight:700}
+.hrow.hl .hnote{color:var(--crit);font-weight:600}
+.hlabel{font-size:13px;color:var(--ink);text-align:right}
+.htrack{position:relative;height:18px;background:var(--track);border-radius:4px;display:flex;align-items:center}
+.htrack.thin{height:14px;margin:2px 0}
+.hfill{height:100%;border-radius:4px;min-width:3px}
+.hval{font-size:12px;color:var(--ink);font-weight:600;margin-left:8px;white-space:nowrap}
+.htrack:hover .hfill{filter:brightness(1.12)}
+.gstack{display:flex;flex-direction:column}
+.legend{display:flex;gap:18px;font-size:12.5px;color:var(--ink2);margin:4px 0 6px 224px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tblwrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f3f2ee;font-weight:600;color:var(--ink2);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:hover{background:#f7f6f3}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;vertical-align:1px}
+.tag.crit{background:#fbe1e1;color:#a52626}.tag.warn{background:#fdefd0;color:#8a5a00}.tag.good{background:#dff0df;color:#176317}.tag.info{background:#dde9f9;color:#1c5cab}
+.timeline{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:14px 0}
+.step{flex:1 1 150px;background:#fff;border:1px solid var(--line);padding:12px 14px;position:relative}
+.step:first-child{border-radius:10px 0 0 10px}.step:last-child{border-radius:0 10px 10px 0}
+.step .t{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.04em}
+.step .v{font-weight:700;font-size:15px;margin:2px 0}
+.step .d{font-size:12.5px;color:var(--ink2)}
+.step.exit{background:#fbeeee;border-color:#f0c4c4}
+.foot{color:var(--ink3);font-size:12px;margin-top:28px;text-align:center}
+.recs li{margin:6px 0}
+@media (max-width:640px){.hrow,.grow{grid-template-columns:1fr}.hlabel{text-align:left}.legend{margin-left:0}.hrow .hnote{grid-column:1}header.cover{padding:24px 20px}section.card{padding:20px 18px}}
+@media print{
+  @page{size:A4;margin:12mm 11mm}
+  body{background:#fff;font-size:12px}
+  .wrap{padding:0;max-width:none}
+  nav.toc{display:none}
+  section.card{border:none;padding:6px 0 10px;margin:0 0 6px;break-inside:auto}
+  section.card + section.card{break-before:page}
+  header.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hfill,.tile,.callout,th,.tag,.step,.legend i,.htrack{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hbars,.tiles,table,.callout,.timeline{break-inside:avoid}
+  h3,h4{break-after:avoid}
+}
+</style>
+<div class="wrap">
+<header class="cover">
+  <h1>Slots Vacation: New-User Funnel Report</h1>
+  <div class="sub">Where new players drop off, from first open to first purchase</div>
+  <div class="meta">
+    <span>Project <b>slots-vacation-9b374</b></span>
+    <span>Source <b>BigQuery · analytics_501019153 (Firebase export)</b></span>
+    <span>Install window <b>Sep 20 – Oct 4, 2026</b></span>
+    <span>Prepared <b>Oct 6, 2026</b></span>
+  </div>
+</header>
+<nav class="toc">
+  <a href="#summary">Executive summary</a><a href="#r1">1 · Overall funnel</a><a href="#r2">2 · US paid users</a>
+  <a href="#r3">3 · Stuck at level 1</a><a href="#r4">4 · Bankruptcy before level 5</a><a href="#method">Method &amp; notes</a>
+</nav>
+
+<section class="card" id="summary">
+<h2>Executive summary</h2>
+<p class="lede">3,597 genuine new users (test builds, users with no country, and Vietnam internal devices excluded).</p>
+<div class="tiles"><div class="tile"><div class="tv">51%</div><div class="tl">of new users reach level 5</div></div><div class="tile"><div class="tv">11.7%</div><div class="tl">D1 retention (genre benchmark ≈ 25–35%)</div></div><div class="tile"><div class="tv">8 / 249</div><div class="tl">purchases completed / buy taps</div></div><div class="tile"><div class="tv">62%</div><div class="tl">of US paid users leave before level 5</div></div></div>
+<ol class="recs">
+<li><b>The biggest leak is the first minute inside the slot machine.</b> 22% of players who enter a machine never reach level 2. In the US paid cohort, players quit at the tutorial’s forced “raise your bet” prompt, 7 seconds after their first spin, <i>before</i> the scripted big win on spin 2.</li>
+<li><b>Android loses players during loading</b>; iOS barely does (86.5% vs 99.4% finish loading). Android build 104 looks like a possible regression.</li>
+<li><b>Monetization is close to zero for new users</b>: players cancel at the price sheet, and new players are shown $99–$199 packs.</li>
+<li><b>Bankruptcy is not a churn driver</b> before level 5: only 8% go broke, 90% are refilled within seconds.</li>
+<li><b>UK/Romania traffic looks inorganic</b> (very deep day-one play, near-zero D1); exclude it from KPI reporting and cross-check with Adjust.</li>
+</ol>
+</section>
+<section class="card" id="r1">
+<h2><span class="num">1</span>Overall new-user funnel</h2>
+<p class="lede">All new users, Sep 20 – Oct 4 · n = 3,597 · bar = % of all new users</p>
+<div class="hbars">
+<div class="hrow" title="first_open: 100.0% - 3,597"><div class="hlabel">first_open</div><div class="htrack"><div class="hfill" style="width:100.00%;background:#2a78d6"></div><span class="hval">100.0%</span></div><div class="hnote">3,597</div></div>
+<div class="hrow" title="Loading started: 97.5% - 3,508"><div class="hlabel">Loading started</div><div class="htrack"><div class="hfill" style="width:97.50%;background:#2a78d6"></div><span class="hval">97.5%</span></div><div class="hnote">3,508</div></div>
+<div class="hrow" title="Loading finished: 95.7% - 3,444"><div class="hlabel">Loading finished</div><div class="htrack"><div class="hfill" style="width:95.70%;background:#2a78d6"></div><span class="hval">95.7%</span></div><div class="hnote">3,444</div></div>
+<div class="hrow" title="tuning_data loaded: 91.4% - 3,286"><div class="hlabel">tuning_data loaded</div><div class="htrack"><div class="hfill" style="width:91.40%;background:#2a78d6"></div><span class="hval">91.4%</span></div><div class="hnote">3,286</div></div>
+<div class="hrow" title="Entered first slot: 83.8% - 3,016"><div class="hlabel">Entered first slot</div><div class="htrack"><div class="hfill" style="width:83.80%;background:#2a78d6"></div><span class="hval">83.8%</span></div><div class="hnote">3,016</div></div>
+<div class="hrow hl" title="Reached level 5: 51.4% - 1,849 · −39% vs previous step"><div class="hlabel">Reached level 5</div><div class="htrack"><div class="hfill" style="width:51.40%;background:#2a78d6"></div><span class="hval">51.4%</span></div><div class="hnote">1,849 · −39% vs previous step</div></div>
+<div class="hrow" title="Reached level 10: 46.9% - 1,686"><div class="hlabel">Reached level 10</div><div class="htrack"><div class="hfill" style="width:46.90%;background:#2a78d6"></div><span class="hval">46.9%</span></div><div class="hnote">1,686</div></div>
+<div class="hrow hl" title="Reached level 20: 24.9% - 897 · −47% vs previous step"><div class="hlabel">Reached level 20</div><div class="htrack"><div class="hfill" style="width:24.90%;background:#2a78d6"></div><span class="hval">24.9%</span></div><div class="hnote">897 · −47% vs previous step</div></div>
+<div class="hrow" title="Opened store: 52.4% - 1,884"><div class="hlabel">Opened store</div><div class="htrack"><div class="hfill" style="width:52.40%;background:#2a78d6"></div><span class="hval">52.4%</span></div><div class="hnote">1,884</div></div>
+<div class="hrow" title="Tapped buy (IAP_start): 6.9% - 249"><div class="hlabel">Tapped buy (IAP_start)</div><div class="htrack"><div class="hfill" style="width:6.90%;background:#2a78d6"></div><span class="hval">6.9%</span></div><div class="hnote">249</div></div>
+<div class="hrow hl" title="Successful purchase: 0.2% - 8 · 3% of buy taps"><div class="hlabel">Successful purchase</div><div class="htrack"><div class="hfill" style="width:0.60%;background:#2a78d6"></div><span class="hval">0.2%</span></div><div class="hnote">8 · 3% of buy taps</div></div>
+</div>
+<p style="color:var(--ink3);font-size:12px;margin-top:2px">“Opened store” is not a sequential step; it is shown as a share of all new users.</p>
+
+<div class="tiles"><div class="tile"><div class="tv">11.7%</div><div class="tl">D1 retention</div></div><div class="tile"><div class="tv">4.9%</div><div class="tl">D3 retention</div></div><div class="tile"><div class="tv">2.6%</div><div class="tl">D7 retention</div></div></div>
+
+<h3>Main drop-off points, by severity</h3>
+<h4><span class="tag crit">1</span> Biggest drop: players enter a slot machine and leave before level 2</h4>
+<ul>
+<li>22% of players who entered a machine (668 users) never reached level 2; most opened a single machine and quit.</li>
+<li>About 35% of all new users stayed at level 1, with further drop-off at levels 2–4.</li>
+<li>Review the first minutes in the machine: starting coins, early win rate, tutorial, time to first level-up.</li>
+</ul>
+
+<h4><span class="tag crit">2</span> Android drops heavily during loading; iOS barely does</h4>
+<div class="legend"><span><i style="background:#2a78d6"></i>iOS (n = 1,560)</span><span><i style="background:#eb6834"></i>Android (n = 2,223)</span></div>
+<div class="hbars grouped">
+<div class="grow"><div class="hlabel">Loading finished</div><div class="gstack">
+<div class="htrack thin" title="Loading finished - iOS (n = 1,560): 99.4%"><div class="hfill" style="width:99.40%;background:#2a78d6"></div><span class="hval">99.4%</span></div>
+<div class="htrack thin" title="Loading finished - Android (n = 2,223): 86.5%"><div class="hfill" style="width:86.50%;background:#eb6834"></div><span class="hval">86.5%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">tuning_data loaded</div><div class="gstack">
+<div class="htrack thin" title="tuning_data loaded - iOS (n = 1,560): 97.3%"><div class="hfill" style="width:97.30%;background:#2a78d6"></div><span class="hval">97.3%</span></div>
+<div class="htrack thin" title="tuning_data loaded - Android (n = 2,223): 80.5%"><div class="hfill" style="width:80.50%;background:#eb6834"></div><span class="hval">80.5%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">Entered slot machine</div><div class="gstack">
+<div class="htrack thin" title="Entered slot machine - iOS (n = 1,560): 90.9%"><div class="hfill" style="width:90.90%;background:#2a78d6"></div><span class="hval">90.9%</span></div>
+<div class="htrack thin" title="Entered slot machine - Android (n = 2,223): 72.8%"><div class="hfill" style="width:72.80%;background:#eb6834"></div><span class="hval">72.8%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">Reached level 5</div><div class="gstack">
+<div class="htrack thin" title="Reached level 5 - iOS (n = 1,560): 64.5%"><div class="hfill" style="width:64.50%;background:#2a78d6"></div><span class="hval">64.5%</span></div>
+<div class="htrack thin" title="Reached level 5 - Android (n = 2,223): 38.0%"><div class="hfill" style="width:38.00%;background:#eb6834"></div><span class="hval">38.0%</span></div>
+</div></div>
+</div>
+<ul>
+<li>The <code>tunning_data</code> step alone loses ~5% of users, with almost no <code>meta_failed</code> logged: players quit or hang without an error.</li>
+<li><b>Android build 104:</b> ~37% of new users (35 of 95) never finished loading. Small sample, but a possible regression to check now.</li>
+</ul>
+
+<h4><span class="tag warn">3</span> Purchases almost never succeed: 249 buy taps → 8 purchases</h4>
+<ul>
+<li>Most failures are <code>UserCancelled</code>: players cancel when they see the price. The first pack shown ($9.99–$19.99) should be reviewed; push the $1.99 starter pack.</li>
+<li>Technical errors to fix: <code>PRICE_NOT_FOUND</code>, <code>PurchasingUnavailable</code>, <code>INVALID_STATE</code>.</li>
+<li>Outside new-user scope: on Android, <b>14 users generated 5,846 <code>IAP_failed</code> events with no reason</b>, likely an error loop or fraud, skewing the IAP dashboard.</li>
+</ul>
+
+<h4><span class="tag warn">4</span> UK and Romania traffic looks abnormal</h4>
+<div class="tblwrap"><table class=""><thead><tr><th>Country</th><th>New users</th><th>Reached lv10</th><th>D1</th><th>Main source</th></tr></thead><tbody><tr><td>United Kingdom</td><td>548</td><td>87.8%</td><td><b>2.9%</b></td><td>(direct)</td></tr><tr><td>Romania</td><td>210</td><td>62.9%</td><td><b>1.5%</b></td><td>(direct)</td></tr><tr><td>United States</td><td>1,767</td><td>29.8%</td><td>14.8%</td><td>mixed</td></tr><tr><td>Canada</td><td>188</td><td>63.8%</td><td>17.0%</td><td>mixed</td></tr></tbody></table></div>
+<p>“Plays very deep on day one, never returns” usually means bots, incentivized traffic, or device farms. Cross-check with Adjust. Vietnam (143 users, 94% uninstalled) is most likely internal devices and is excluded from this report.</p>
+
+<h4><span class="tag info">5</span> Clear dip on Sep 25–26</h4>
+<p>Only ~69% of users entered a slot machine (vs ~87% on other days) while installs doubled, pointing to a low-quality campaign burst or a server/CDN incident on those days.</p>
+</section>
+<section class="card" id="r2">
+<h2><span class="num">2</span>US paid users (Google Ads · cpc)</h2>
+<p class="lede">542 users, all Android, all from campaign <code>SV-GP</code>. Benchmark: 742 US Android users not from ads.</p>
+<div class="legend"><span><i style="background:#2a78d6"></i>US paid (n = 542)</span><span><i style="background:#eb6834"></i>US Android organic (n = 742)</span></div>
+<div class="hbars grouped">
+<div class="grow"><div class="hlabel">Loading finished</div><div class="gstack">
+<div class="htrack thin" title="Loading finished - US paid (n = 542): 94.3%"><div class="hfill" style="width:94.30%;background:#2a78d6"></div><span class="hval">94.3%</span></div>
+<div class="htrack thin" title="Loading finished - US Android organic (n = 742): 93.1%"><div class="hfill" style="width:93.10%;background:#eb6834"></div><span class="hval">93.1%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">tuning_data loaded</div><div class="gstack">
+<div class="htrack thin" title="tuning_data loaded - US paid (n = 542): 85.4%"><div class="hfill" style="width:85.40%;background:#2a78d6"></div><span class="hval">85.4%</span></div>
+<div class="htrack thin" title="tuning_data loaded - US Android organic (n = 742): 86.9%"><div class="hfill" style="width:86.90%;background:#eb6834"></div><span class="hval">86.9%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">Entered slot machine</div><div class="gstack">
+<div class="htrack thin" title="Entered slot machine - US paid (n = 542): 75.3%"><div class="hfill" style="width:75.30%;background:#2a78d6"></div><span class="hval">75.3%</span></div>
+<div class="htrack thin" title="Entered slot machine - US Android organic (n = 742): 84.2%"><div class="hfill" style="width:84.20%;background:#eb6834"></div><span class="hval">84.2%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">Reached level 5</div><div class="gstack">
+<div class="htrack thin" title="Reached level 5 - US paid (n = 542): 37.6%"><div class="hfill" style="width:37.60%;background:#2a78d6"></div><span class="hval">37.6%</span></div>
+<div class="htrack thin" title="Reached level 5 - US Android organic (n = 742): 34.6%"><div class="hfill" style="width:34.60%;background:#eb6834"></div><span class="hval">34.6%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">Reached level 20</div><div class="gstack">
+<div class="htrack thin" title="Reached level 20 - US paid (n = 542): 16.8%"><div class="hfill" style="width:16.80%;background:#2a78d6"></div><span class="hval">16.8%</span></div>
+<div class="htrack thin" title="Reached level 20 - US Android organic (n = 742): 11.6%"><div class="hfill" style="width:11.60%;background:#eb6834"></div><span class="hval">11.6%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">D1 retention</div><div class="gstack">
+<div class="htrack thin" title="D1 retention - US paid (n = 542): 15.2%"><div class="hfill" style="width:15.20%;background:#2a78d6"></div><span class="hval">15.2%</span></div>
+<div class="htrack thin" title="D1 retention - US Android organic (n = 742): 13.2%"><div class="hfill" style="width:13.20%;background:#eb6834"></div><span class="hval">13.2%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">D3 retention</div><div class="gstack">
+<div class="htrack thin" title="D3 retention - US paid (n = 542): 7.6%"><div class="hfill" style="width:7.60%;background:#2a78d6"></div><span class="hval">7.6%</span></div>
+<div class="htrack thin" title="D3 retention - US Android organic (n = 742): 4.4%"><div class="hfill" style="width:4.40%;background:#eb6834"></div><span class="hval">4.4%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">D7 retention</div><div class="gstack">
+<div class="htrack thin" title="D7 retention - US paid (n = 542): 3.7%"><div class="hfill" style="width:3.70%;background:#2a78d6"></div><span class="hval">3.7%</span></div>
+<div class="htrack thin" title="D7 retention - US Android organic (n = 742): 4.0%"><div class="hfill" style="width:4.00%;background:#eb6834"></div><span class="hval">4.0%</span></div>
+</div></div>
+</div>
+<div class="callout"><b>Paid quality is not the problem; the first minutes are.</b>
+Paid users who survive the first minutes play deeper and return more often than organic users, but <b>62% leave before level 5</b> and 67% have uninstalled. 30 paid users tapped buy; <b>0 purchased</b>.</div>
+
+<h3>Where paid users drop off</h3>
+<div class="hbars">
+<div class="hrow" title="A. Never finished loading: 79 users (15%) - median 15 sec played · 44% uninstalled &lt; 1h"><div class="hlabel">A. Never finished loading</div><div class="htrack"><div class="hfill" style="width:65.83%;background:#2a78d6"></div><span class="hval">79 users (15%)</span></div><div class="hnote">median 15 sec played · 44% uninstalled &lt; 1h</div></div>
+<div class="hrow" title="B. Loaded, never entered a machine: 55 users (10%) - 35 sec · 84% uninstalled &lt; 1h"><div class="hlabel">B. Loaded, never entered a machine</div><div class="htrack"><div class="hfill" style="width:45.83%;background:#2a78d6"></div><span class="hval">55 users (10%)</span></div><div class="hnote">35 sec · 84% uninstalled &lt; 1h</div></div>
+<div class="hrow hl" title="C. Entered machine, never reached lv2: 117 users (22%) - 50 sec · 60% uninstalled &lt; 1h"><div class="hlabel">C. Entered machine, never reached lv2</div><div class="htrack"><div class="hfill" style="width:97.50%;background:#2a78d6"></div><span class="hval">117 users (22%)</span></div><div class="hnote">50 sec · 60% uninstalled &lt; 1h</div></div>
+<div class="hrow" title="D. Stopped at level 2–4: 87 users (16%) - 2 min · 61%"><div class="hlabel">D. Stopped at level 2–4</div><div class="htrack"><div class="hfill" style="width:72.50%;background:#2a78d6"></div><span class="hval">87 users (16%)</span></div><div class="hnote">2 min · 61%</div></div>
+<div class="hrow" title="E. Stopped at level 5–19: 113 users (21%) - 11 min · 29%"><div class="hlabel">E. Stopped at level 5–19</div><div class="htrack"><div class="hfill" style="width:94.17%;background:#2a78d6"></div><span class="hval">113 users (21%)</span></div><div class="hnote">11 min · 29%</div></div>
+<div class="hrow" title="F. Reached level 20+: 91 users (17%) - 48 min · 15%"><div class="hlabel">F. Reached level 20+</div><div class="htrack"><div class="hfill" style="width:75.83%;background:#2a78d6"></div><span class="hval">91 users (17%)</span></div><div class="hnote">48 min · 15%</div></div>
+</div>
+
+<h4>A. Never finished loading (79 users)</h4>
+<p>Median 15 seconds, mostly stuck at the lobby while loading. Almost no crashes, and no specific device or Android version stands out. This looks like slow loading rather than crashing: measure <code>tunning_data</code> load time on mobile networks.</p>
+<h4>B. Loaded but never entered a machine (55 users, 84% uninstalled within an hour)</h4>
+<p>Last event is usually the 5,000-coin install gift, a store open (6), or a card-collection load error (3). Players are likely blocked by a popup/store/gift in the lobby. Test sending new users straight into a machine and disabling first-session popups.</p>
+<h4>C. Entered a machine, never reached level 2 (117 users): see Report 3</h4>
+<p>Almost every new user is placed in <b>Tropical Island</b>; 31% of them never reach level 2.</p>
+<h4>Purchases: 30 buy taps, 0 purchases</h4>
+<ul>
+<li>The most tapped item is the <b>$5.99 Monthly Pass</b> (<code>promo_lobby</code>), often 2–3 times before cancelling: real intent. Possible causes: no payment method on the Play account, or a price mismatch between game and Google Play sheet.</li>
+<li>Level 1–3 players tap <b>$99–$199</b> packs (likely by accident); the $1.99 starter pack almost never appears for this cohort.</li>
+<li>One <code>PRICE_NOT_FOUND</code> on the Monthly Pass: check the product configuration in Google Play.</li>
+</ul>
+</section>
+<section class="card" id="r3">
+<h2><span class="num">3</span>Deep dive: “entered a machine, never reached level 2”</h2>
+<p class="lede">117 US paid (Android) users, split by number of spins. The bet increase is forced by the tutorial.</p>
+
+<h3>The 1-spin journey</h3>
+<div class="timeline">
+  <div class="step"><div class="t">0:00</div><div class="v">Install &amp; open</div><div class="d">5,000 starting coins</div></div>
+  <div class="step"><div class="t">~0:28</div><div class="v">Enter Tropical Island</div><div class="d">Assigned first machine</div></div>
+  <div class="step"><div class="t">+7 sec</div><div class="v">Spin 1 · bet 100</div><div class="d">Tiny win (20–67 coins)</div></div>
+  <div class="step exit"><div class="t">+7 sec</div><div class="v">Tutorial: raise bet to 2,000</div><div class="d"><b>Player quits here</b></div></div>
+  <div class="step exit"><div class="t">+16 sec</div><div class="v">Uninstall</div><div class="d">84% of this group</div></div>
+</div>
+
+<div class="tblwrap"><table class=""><thead><tr><th></th><th>0 spins</th><th>1 spin</th><th>2+ spins</th></tr></thead><tbody><tr><td>Users</td><td>32</td><td>38</td><td>47</td></tr><tr><td>App open → entered machine (median)</td><td>18 sec</td><td>28 sec</td><td>30 sec</td></tr><tr><td>Entered machine → first spin</td><td>–</td><td><b>7 sec</b></td><td>8 sec</td></tr><tr><td>Stayed after last action</td><td>left after <b>6 sec</b></td><td>left <b>7 sec</b> after spin 1</td><td>~80 sec</td></tr><tr><td>Total playtime</td><td>23 sec</td><td>36 sec</td><td>99 sec</td></tr><tr><td><b>Uninstalled</b></td><td><b>84%</b></td><td><b>84%</b></td><td>66%</td></tr><tr><td>App open → uninstall (median)</td><td><b>1 min</b></td><td><b>2 min</b></td><td>4 min</td></tr><tr><td>Last event → uninstall</td><td>15 sec</td><td>16 sec</td><td>22 sec</td></tr></tbody></table></div>
+
+<h4>1-spin group: they leave exactly at the forced bet increase</h4>
+<p>All made a first spin at 100 and won a tiny amount. The tutorial then asks for a 2,000 bet; they quit within ~7 seconds and uninstall ~16 seconds later. Only 1 opened the store. 11 came back later, loaded into the lobby and left without spinning.</p>
+<h4>0-spin group: they leave almost instantly</h4>
+<p>The machine appears; ~6 seconds later they quit. No crashes. Install-to-uninstall takes about 1 minute, a sign of <b>low-intent installs</b> (accidental ad clicks, common in Google App Campaigns on display/in-game placements), or a tutorial overlay that confuses players. Verify the first screen directly.</p>
+<h4>2+ spin group: the tutorial drops them after the scripted win</h4>
+<p>Spin 2 at the forced bet <b>always wins big</b> (21,000–34,000 coins), yet they <b>still do not reach level 2</b>. They exit to the lobby (<code>core_abandoned</code>); some open the store and leave. The tutorial does not carry them through to level 2 and its 10,000-coin reward.</p>
+
+<h3>Cities and devices</h3>
+<p><b>No city concentration</b>: at most 4 users per city (Phoenix, Charlotte). By state, compared to the 22% average:</p>
+<div class="tblwrap"><table class=""><thead><tr><th>State</th><th>Paid users</th><th>Never reached level 2</th></tr></thead><tbody><tr><td>Texas</td><td>51</td><td><b>29%</b></td></tr><tr><td>North Carolina</td><td>29</td><td>28%</td></tr><tr><td>Georgia</td><td>22</td><td>27%</td></tr><tr><td>California</td><td>63</td><td><b>10%</b></td></tr><tr><td>Oregon</td><td>18</td><td>11%</td></tr></tbody></table></div>
+<p style="color:var(--ink3);font-size:12.5px">Samples are too small to call geography a cause; consider state-level segmentation in Google Ads. Budget phones (Moto G Play, Galaxy A15/A16) are 50% of this group vs 40% of users who reach level 5: a gap, but not the main cause.</p>
+
+<h3>Other events</h3>
+<ul><li><b>app_remove: 90 of 117 (77%)</b>, mostly 1–4 minutes after install.</li>
+<li>No crashes, no significant <code>meta_failed</code>, almost no store/buy activity.</li></ul>
+
+<div class="callout crit"><b>Recommendations</b>
+<ol style="margin:4px 0 0">
+<li><b>A/B test the forced bet step</b> (38 users quit there in ~7 sec): remove it in the first session, or give the big win on spin 1 at bet 100 and only then suggest raising the bet.</li>
+<li><b>After the scripted win, take players straight to level 2</b> and award the 10,000 coins instead of dropping them in the lobby.</li>
+<li><b>0-spin users look like low-quality traffic</b>: review placement reporting for <code>SV-GP</code>, or optimize the campaign for an in-game event (<code>level_up</code>, 5th spin) instead of installs.</li>
+</ol></div>
+</section>
+<section class="card" id="r4">
+<h2><span class="num">4</span>Do players go bankrupt before level 5?</h2>
+<p class="lede">Fresh accounts only (starting with 5,000 coins), spins before reaching level 5.</p>
+<div class="callout good"><b>No. Bankruptcy is not why new players leave before level 5.</b>
+It is rare, the game refills coins within seconds, and players who go broke actually progress further than those who don’t.</div>
+
+<div class="callout warn"><b>Correction to earlier analysis</b>
+An earlier version stated that a 5,000-coin player could only spin 1–2 times at a 2,000–5,000 bet before running out. That was wrong: win events carry a slightly different timestamp than bet events, and reinstalled accounts with old balances had been mixed in. With both fixed, the tutorial is safe.</div>
+
+<h3>Tutorial spins are scripted to win</h3>
+<div class="tblwrap"><table class=""><thead><tr><th>Tutorial spin</th><th>Bet</th><th>US paid users</th><th>Result</th></tr></thead><tbody><tr><td>Spin 1</td><td>100</td><td>311</td><td>Always a small win (median 40 coins)</td></tr><tr><td>Spin 2</td><td>2,000 (tutorial)</td><td>129</td><td><b>Always a big win</b>, median 28,000 coins (128 / 129)</td></tr><tr><td>Spin 2</td><td>5,000</td><td>52</td><td><b>Always a big win</b>, median 66,667 coins (52 / 52)</td></tr></tbody></table></div>
+<p>The players who quit after one spin left at the “raise your bet” prompt, <b>before</b> they reached the guaranteed big win.</p>
+
+<h3>How often players go broke</h3>
+<p style="color:var(--ink2);font-size:12.5px"><b>Broke</b> = balance after a spin is lower than the bet in use. <b>Hard broke</b> = balance below 100 (minimum bet).</p>
+<div class="tblwrap"><table class=""><thead><tr><th>Segment</th><th>Spun before lv5</th><th>Went broke</th><th>Hard broke (&lt;100)</th></tr></thead><tbody><tr><td>All new users</td><td>2,053</td><td><b>165 (8.0%)</b></td><td>13</td></tr><tr><td><b>US paid (cpc)</b></td><td>311</td><td><b>13 (4.2%)</b></td><td>1</td></tr><tr><td>Android</td><td>1,090</td><td>49 (4.5%)</td><td>3</td></tr><tr><td>iOS</td><td>963</td><td>116 (12.0%)</td><td>10</td></tr></tbody></table></div>
+<ul>
+<li><b>When:</b> mostly at levels 3–4, around spin 3–4, about 1–2 minutes after install.</li>
+<li><b>Why:</b> after the scripted win they bet 10,000–100,000 coins, <b>60–80% of their balance on one spin</b>.</li>
+<li><b>Not wiped out:</b> median remaining balance is about 10,000 coins.</li>
+</ul>
+
+<h3>What happens after going broke</h3>
+<div class="tblwrap"><table class=""><thead><tr><th></th><th>All new users</th><th>US paid</th></tr></thead><tbody><tr><td>Got free coins within 30 min</td><td><b>90%</b> (median 6 sec)</td><td><b>92%</b> (median 4 sec)</td></tr><tr><td>Spun again</td><td>87%</td><td>62%</td></tr><tr><td>Opened store within 10 min</td><td>47%</td><td>31%</td></tr><tr><td>Tapped buy</td><td>16%</td><td>8%</td></tr></tbody></table></div>
+<p style="color:var(--ink2);font-size:12.5px">Refill sources: level-up reward, <code>free_bonus</code>, <code>bonus_wheel</code>, <code>bonus_game</code>, <code>review</code> reward.</p>
+
+<h3>Share reaching level 5: went broke vs never broke</h3>
+<div class="legend"><span><i style="background:#2a78d6"></i>Went broke before lv5</span><span><i style="background:#eb6834"></i>Never went broke</span></div>
+<div class="hbars grouped">
+<div class="grow"><div class="hlabel">All new users</div><div class="gstack">
+<div class="htrack thin" title="All new users - Went broke before lv5: 79.4%"><div class="hfill" style="width:79.40%;background:#2a78d6"></div><span class="hval">79.4%</span></div>
+<div class="htrack thin" title="All new users - Never went broke: 59.4%"><div class="hfill" style="width:59.40%;background:#eb6834"></div><span class="hval">59.4%</span></div>
+</div></div>
+<div class="grow"><div class="hlabel">US paid</div><div class="gstack">
+<div class="htrack thin" title="US paid - Went broke before lv5: 53.8%"><div class="hfill" style="width:53.80%;background:#2a78d6"></div><span class="hval">53.8%</span></div>
+<div class="htrack thin" title="US paid - Never went broke: 46.6%"><div class="hfill" style="width:46.60%;background:#eb6834"></div><span class="hval">46.6%</span></div>
+</div></div>
+</div>
+<p>Players who go broke are the more engaged, bigger-betting players. The only harmful case, “broke, no free coins, never spun again”, is <b>11 users (0.5%)</b>, only <b>1</b> US paid user; most (9) are iOS users at level 1.</p>
+
+<div class="callout"><b>Conclusions</b>
+<ol style="margin:4px 0 0">
+<li>The early coin economy and refills work well; bankruptcy is not a meaningful churn cause before level 5.</li>
+<li>The real drop-off remains the tutorial “raise your bet” step: show the big win on spin 1, or make the payoff of raising the bet obvious.</li>
+<li>Out-of-coins is a monetization moment: broke players open the store (47%) and tap buy (16%) far more than average (~7%). Show the $1.99 starter pack there.</li>
+<li>Possible iOS bug: 8 iOS users went hard broke at level 1 betting 100, and 9 were stuck with no refill. Check the out-of-coins offer / free bonus on iOS at level 1.</li>
+</ol></div>
+</section>
+<section class="card" id="method">
+<h2>Method &amp; data notes</h2>
+<ul>
+<li><b>Cohort:</b> users with a <code>first_open</code> event between Sep 20 and Oct 4, 2026. Oct 5–6 had not yet been exported to BigQuery and no intraday tables exist.</li>
+<li><b>Excluded:</b> <code>.DEV</code> builds, users with no country, Vietnam (likely internal devices).</li>
+<li><b>US paid:</b> country = United States and <code>traffic_source.medium = cpc</code> (all Android, campaign <code>SV-GP</code>).</li>
+<li><b>Funnel steps:</b> <code>meta_started/meta_completed</code> (<code>first_loading</code>, <code>tunning_data</code>), <code>core_started</code>, <code>level_up</code>, <code>store_entered</code>, <code>IAP_start</code>, <code>IAP_completed</code> (non-test, receipt = Success).</li>
+<li><b>Retention:</b> <code>session_start</code> on exactly day N after install; D1 uses installs through Oct 3, D3 through Oct 1, D7 through Sep 27.</li>
+<li><b>Bankruptcy:</b> each <code>spend_virtual_currency</code> paired with the following <code>spin_main</code> win; fresh accounts only (≤ 10,000 coins before first spin).</li>
+<li>iOS does not send <code>app_remove</code>; uninstall rates are not comparable across platforms.</li>
+</ul>
+</section>
+<div class="foot">Slots Vacation · New-user funnel report · Data: Firebase Analytics BigQuery export · Generated Oct 6, 2026</div>
+</div>
