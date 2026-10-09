@@ -1,0 +1,124 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Slots Vacation · Account Reset (đã loại QA/VN)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f6f5f2;--card:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--ink3:#7a7974;--line:#e4e2dc;--track:#efeee9;
+--accent:#2a78d6;--warn:#b25e00;--crit:#d03b3b;--good:#0a7f0a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 64px}
+header.cover{background:#0d366b;color:#fff;border-radius:16px;padding:32px 32px 28px;margin-bottom:24px}
+header.cover h1{margin:0 0 6px;font-size:30px;letter-spacing:-.01em}
+header.cover .sub{color:#cde2fb;font-size:15px}
+header.cover .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;color:#b7d3f6}
+header.cover .meta b{color:#fff;font-weight:600}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:0 0 22px}
+h2{font-size:21px;margin:0 0 4px;letter-spacing:-.01em}
+h2 .num{color:var(--accent);margin-right:8px}
+.lede{color:var(--ink2);margin:0 0 18px}
+h3{font-size:15.5px;margin:22px 0 10px}
+p,li{color:#222}
+ul,ol{padding-left:20px;margin:6px 0}
+li{margin:3px 0}
+code{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;background:#efeee9;padding:1px 5px;border-radius:4px}
+.callout{border-left:4px solid var(--accent);background:#eef4fc;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.callout.warn{border-color:#eda100;background:#fdf6e6}
+.callout.crit{border-color:var(--crit);background:#fbeeee}
+.callout.good{border-color:var(--good);background:#edf7ed}
+.callout b:first-child{display:block;margin-bottom:2px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0 6px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+.tv{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.tl{color:var(--ink2);font-size:12.5px;margin-top:4px}
+.hbars{margin:8px 0 4px}
+.hrow{display:grid;grid-template-columns:150px 1fr;gap:4px 14px;align-items:center;padding:4px 0}
+.hlabel{font-size:13px;color:var(--ink);text-align:right}
+.htrack{position:relative;height:18px;background:var(--track);border-radius:4px;display:flex;align-items:center}
+.hfill{height:100%;border-radius:4px;min-width:3px}
+.hval{font-size:12px;color:var(--ink);font-weight:600;margin-left:8px;white-space:nowrap}
+.tblwrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f3f2ee;font-weight:600;color:var(--ink2);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;vertical-align:1px}
+.tag.crit{background:#fbe1e1;color:#a52626}.tag.warn{background:#fdefd0;color:#8a5a00}.tag.good{background:#dff0df;color:#176317}.tag.info{background:#dde9f9;color:#1c5cab}
+.timeline{display:flex;flex-wrap:wrap;align-items:stretch;margin:14px 0}
+.step{flex:1 1 150px;background:#fff;border:1px solid var(--line);padding:12px 14px}
+.step:first-child{border-radius:10px 0 0 10px}.step:last-child{border-radius:0 10px 10px 0}
+.step .t{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.04em}
+.step .v{font-weight:700;font-size:15px;margin:2px 0}
+.step .d{font-size:12.5px;color:var(--ink2)}
+.foot{color:var(--ink3);font-size:12px;margin-top:8px}
+@media (max-width:640px){.hrow{grid-template-columns:90px 1fr}section.card{padding:20px 16px}}
+@media print{body{background:#fff}.wrap{padding:0}section.card,header.cover,.timeline,table{break-inside:avoid}section.card{border-color:#ddd}}
+</style>
+<style>.hbar2{display:grid;grid-template-columns:90px 1fr 1fr;gap:4px 10px;align-items:center;padding:3px 0;font-size:12.5px}.legend span{display:inline-flex;align-items:center;gap:6px;margin-right:16px;font-size:12.5px;color:var(--ink2)}.sw{width:12px;height:12px;border-radius:3px;display:inline-block}</style>
+<body><div class="wrap">
+<header class="cover"><h1>Slots Vacation · Mất account (đã loại QA và VN)</h1>
+<div class="sub">Làm lại report ngày 07/10: tách máy QA nội bộ và account Việt Nam ra khỏi 124 case mất account</div>
+<div class="meta"><span>Project <b>slots-vacation-9b374</b></span><span>Dataset <b>analytics_501019153</b></span><span>Case <b>07/08 – 05/10/2026</b></span><span>Ngày lập <b>09/10/2026</b></span></div></header>
+
+<section class="card"><h2><span class="num">0</span>Tóm tắt</h2>
+<div class="tiles">
+<div class="tile"><div class="tv">56</div><div class="tl">lượt mất account của user thật (49 thiết bị), trước đây báo 124</div></div>
+<div class="tile"><div class="tv">68</div><div class="tl">lượt đã loại: 65 QA, 3 account VN (44 thiết bị)</div></div>
+<div class="tile"><div class="tv">37</div><div class="tl">lượt đúng pattern lỗi client (trước đây 51)</div></div>
+<div class="tile"><div class="tv">44</div><div class="tl">lượt chưa lấy lại được account cũ</div></div>
+</div>
+<div class="callout warn"><b>Hơn một nửa số case trong report cũ là QA nội bộ.</b> 65 lượt đến từ build test: event có <code>debug_event=1</code>, cài qua <code>manual_install</code> (TestFlight hoặc Xcode), hoặc chạy build <code>.DEV</code>. Tất cả đều là máy ở Việt Nam, kể cả nhóm hiện IP Singapore (ngôn ngữ en-vn, múi giờ +7). Thêm 3 lượt account VN trên bản Google Play cũng đã được loại theo yêu cầu.</div>
+<div class="callout crit"><b>Lỗi vẫn có thật ở user thật.</b> Còn 56 lượt trên 49 máy, 37 Android và 19 iOS, chủ yếu ở Mỹ (40 lượt). 10 account level ≥ 500 bị reset, trong đó 6 account chưa lấy lại được. Pattern không đổi: mở app lại, client bắn <code>install_game</code> (5.000 coin), rồi user_id mới xuất hiện.</div>
+<div class="callout"><b>Kết luận "version 103 làm lỗi nặng hơn" cần sửa lại.</b> Sau khi loại QA, iOS 103 không còn cao hơn 101/102 (0,48 so với 0,57 và 0,21 case trên 10.000 session). Mức cao trước đây là do máy QA chạy bản 103. Android 103 vẫn cao gấp khoảng 2 lần bản 102 (2,63 so với 1,28), nhưng chỉ có 6 case nên chưa đủ để kết luận.</div>
+</section>
+
+<section class="card"><h2><span class="num">1</span>Cách nhận diện QA và VN</h2>
+<p class="lede">Mỗi case được kiểm tra trên toàn bộ event còn lại của thiết bị (<code>user_pseudo_id</code>), và của cả old_uid lẫn new_uid.</p>
+<div class="tblwrap"><table><thead><tr><th>Dấu hiệu</th><th>Ý nghĩa</th><th class="n">Số lượt</th></tr></thead><tbody>
+<tr><td><code>debug_event=1</code></td><td>Build debug hoặc máy đang bật DebugView</td><td class="n">62</td></tr>
+<tr><td><code>install_source = manual_install</code></td><td>Không cài từ App Store hay Google Play (TestFlight, Xcode, ad-hoc)</td><td class="n">59</td></tr>
+<tr><td>Version <code>103.DEV</code>, <code>105.DEV</code></td><td>Build dev trên track test nội bộ của Google Play (SM-S908E, SM-G998B)</td><td class="n">5</td></tr>
+<tr><td>uid từng dùng trên máy QA</td><td>Thiết bị không còn dữ liệu (trước 09/08), nhưng uid <code>7871a54a…</code> có trên máy QA</td><td class="n">1</td></tr>
+<tr><td>Việt Nam</td><td>Quốc gia Vietnam, hoặc ngôn ngữ thiết bị vi-* hay *-vn (kể cả IP Singapore/HK)</td><td class="n">68</td></tr>
+</tbody></table></div>
+<p class="foot">Một lượt có thể có nhiều dấu hiệu. Mọi lượt QA đều là máy ở VN, nên hai tiêu chí trùng nhau hoàn toàn.</p>
+<h3>Thiết bị bị loại</h3>
+<div class="tblwrap"><table><thead><tr><th>OS</th><th>Model</th><th>Nguồn cài</th><th class="n">Lượt</th></tr></thead><tbody>
+<tr><td>iOS</td><td>iPhone 12</td><td>manual_install</td><td class="n">32</td></tr><tr><td>iOS</td><td>iPhone 11</td><td>manual_install</td><td class="n">13</td></tr><tr><td>iOS</td><td>iPad Air (11-inch) (7th gen)</td><td>manual_install</td><td class="n">9</td></tr><tr><td>Android</td><td>SM-S908E</td><td>com.android.vending</td><td class="n">5</td></tr><tr><td>iOS</td><td>iPhone 8</td><td>manual_install</td><td class="n">4</td></tr><tr><td>Android</td><td>SM-G998B</td><td>com.android.vending</td><td class="n">2</td></tr><tr><td>iOS</td><td>(không còn dữ liệu)</td><td>–</td><td class="n">1</td></tr><tr><td>iOS</td><td>iPad Pro (12.9-inch) (3rd generation)</td><td>manual_install</td><td class="n">1</td></tr><tr><td>Android</td><td>23129RAA4G</td><td>com.android.vending</td><td class="n">1</td></tr>
+</tbody></table></div>
+<div class="callout"><b>Cùng một account QA được dùng trên nhiều máy.</b> Ví dụ <code>eb53be38…</code> có trên 3 thiết bị, <code>557a9dd9…</code> có trên 4 pseudo_id. Có máy đổi qua 3–5 uid trong vài phút, và số dư lên tới 565 tỷ coin, nhiều khả năng là coin cheat.</div>
+</section>
+
+<section class="card"><h2><span class="num">2</span>Các case còn lại (user thật)</h2>
+<h3>Theo tuần</h3>
+<div class="legend"><span><i class="sw" style="background:#2a78d6"></i>User thật</span><span><i class="sw" style="background:#c9c7c0"></i>QA / VN đã loại</span></div>
+<div class="hrow"><div class="hlabel">Tuần 03/08</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:4.0%;background:#2a78d6"></div><span class="hval">1</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:12.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">3</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 10/08</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:28.0%;background:#2a78d6"></div><span class="hval">7</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:100.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">25</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 17/08</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:8.0%;background:#2a78d6"></div><span class="hval">2</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:60.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">15</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 24/08</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:28.0%;background:#2a78d6"></div><span class="hval">7</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:40.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">10</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 31/08</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:32.0%;background:#2a78d6"></div><span class="hval">8</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:16.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">4</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 07/09</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:20.0%;background:#2a78d6"></div><span class="hval">5</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:36.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">9</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 14/09</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:24.0%;background:#2a78d6"></div><span class="hval">6</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:0.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">0</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 21/09</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:40.0%;background:#2a78d6"></div><span class="hval">10</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:8.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">2</span></div></div></div><div class="hrow"><div class="hlabel">Tuần 28/09</div><div><div class="htrack" style="height:12px;margin-bottom:2px;background:none"><div class="hfill" style="width:40.0%;background:#2a78d6"></div><span class="hval">10</span></div><div class="htrack" style="height:12px;background:none"><div class="hfill" style="width:0.0%;background:#c9c7c0"></div><span class="hval" style="color:var(--ink3)">0</span></div></div></div><p class="foot">QA tập trung vào 07/08 – 28/08 (đợt test bản 103 trên iOS), thêm vài đợt ngày 04–10/09. Case của user thật rải đều mỗi tuần và tăng nhẹ ở 2 tuần cuối của tháng 9.</p>
+<h3>Theo quốc gia</h3>
+<div class="tblwrap"><table><thead><tr><th>Quốc gia</th><th class="n">Lượt</th></tr></thead><tbody>
+<tr><td>United States</td><td class="n">40</td></tr><tr><td>United Kingdom</td><td class="n">2</td></tr><tr><td>Netherlands</td><td class="n">2</td></tr><tr><td>Philippines</td><td class="n">1</td></tr><tr><td>Norway</td><td class="n">1</td></tr><tr><td>Honduras</td><td class="n">1</td></tr><tr><td>India</td><td class="n">1</td></tr><tr><td>Australia</td><td class="n">1</td></tr><tr><td>Peru</td><td class="n">1</td></tr><tr><td>New Zealand</td><td class="n">1</td></tr><tr><td>Chile</td><td class="n">1</td></tr><tr><td>Indonesia</td><td class="n">1</td></tr><tr><td>Nhiều nước (EU/US)</td><td class="n">1</td></tr><tr><td>Switzerland</td><td class="n">1</td></tr><tr><td>Uruguay</td><td class="n">1</td></tr>
+</tbody></table></div>
+<h3>Account lớn bị reset (level ≥ 500)</h3>
+<div class="tblwrap"><table><thead><tr><th>Ngày</th><th>OS</th><th>Ver</th><th>Account cũ</th><th class="n">Level</th><th>Thiết bị / nước</th><th>Trạng thái</th></tr></thead><tbody>
+<tr><td>11/08</td><td>Android</td><td>101</td><td><code>e83546b3-af6c-461e-8760-ae04cfde97ff</code></td><td class='n'>1327</td><td>Moto G Play (2026) · United States</td><td><span class="tag good">đã quay lại</span></td></tr><tr><td>24/08</td><td>Android</td><td>102</td><td><code>e83546b3-af6c-461e-8760-ae04cfde97ff</code></td><td class='n'>1327</td><td>Moto G Play (2026) · United States</td><td><span class="tag good">đã quay lại</span></td></tr><tr><td>01/09</td><td>Android</td><td>102</td><td><code>fd192662-b606-40a1-83b3-422a71ce6e47</code></td><td class='n'>1328</td><td>SM-A376U · United States</td><td><span class="tag good">đã quay lại</span></td></tr><tr><td>13/09</td><td>iOS</td><td>103</td><td><code>28026bca-89e0-4fdc-b121-ca661812e719</code></td><td class='n'>1322</td><td>iPhone 8 Plus · United States</td><td><span class="tag good">đã quay lại</span></td></tr><tr><td>17/09</td><td>Android</td><td>102</td><td><code>911a02f9-425b-477e-a335-9331239187ee</code></td><td class='n'>1314</td><td>SM-T510 · United States</td><td><span class="tag crit">mất</span></td></tr><tr><td>19/09</td><td>Android</td><td>102</td><td><code>0a9cc942-4e2f-4be5-9520-60a60e568b81</code></td><td class='n'>1327</td><td>Z2474 · Peru</td><td><span class="tag good">đã quay lại</span></td></tr><tr><td>20/09</td><td>Android</td><td>103</td><td><code>ff5e2895-fe40-40c6-a29c-5a8716b69ca3</code></td><td class='n'>1314</td><td>SM-T510 · United States</td><td><span class="tag crit">mất</span></td></tr><tr><td>21/09</td><td>iOS</td><td>103</td><td><code>a7031ca3-dd52-4062-b5ca-7d3b83c9f61c</code></td><td class='n'>1326</td><td>iPad (7th gen) · New Zealand</td><td><span class="tag crit">mất</span></td></tr><tr><td>21/09</td><td>Android</td><td>102</td><td><code>9300142a-0cff-41fa-a781-ad6fb190d9f5</code></td><td class='n'>590</td><td>SM-A366U · United States</td><td><span class="tag crit">mất</span></td></tr><tr><td>23/09</td><td>iOS</td><td>103</td><td><code>832490ba-40db-415b-b8bd-f3a9e25845e5</code></td><td class='n'>1311</td><td>iPhone 11 · United States</td><td><span class="tag crit">mất</span></td></tr><tr><td>26/09</td><td>iOS</td><td>102</td><td><code>50ad895a-727e-4b8e-833e-0bd1870e6667</code></td><td class='n'>729</td><td>iPhone 14 Plus · Nhiều nước (EU/US)</td><td><span class="tag crit">mất</span></td></tr></tbody></table></div>
+<p class="foot">Không account nào trong bảng này là QA hay VN. So với report cũ, bảng này có thêm <code>911a02f9…</code> (17/09, Android 102, tablet SM-T510) và các account đã quay lại.</p>
+</section>
+
+<section class="card"><h2><span class="num">3</span>Tỷ lệ theo version (đã loại QA và VN)</h2>
+<p class="lede">Số case trên 10.000 session, chỉ tính session của user không phải QA/VN. Khoảng 09/08 – 05/10, vì bảng events_* chỉ giữ 60 ngày.</p>
+<div class="tblwrap"><table><thead><tr><th>Version</th><th class="n">Session</th><th class="n">Case đúng pattern</th><th class="n">Trên 10k session</th><th class="n">Tất cả case</th><th class="n">Trên 10k session</th><th class="n">Report cũ (có QA)</th></tr></thead><tbody>
+<tr><td>Android 101</td><td class='n'>52.896</td><td class='n'>5</td><td class='n'><b>0,95</b></td><td class='n'>7</td><td class='n'>1,32</td><td class='n' style='color:var(--ink3)'>0,86</td></tr><tr><td>Android 102</td><td class='n'>93.815</td><td class='n'>12</td><td class='n'><b>1,28</b></td><td class='n'>21</td><td class='n'>2,24</td><td class='n' style='color:var(--ink3)'>1,31</td></tr><tr><td>Android 103</td><td class='n'>22.831</td><td class='n'>6</td><td class='n'><b>2,63</b></td><td class='n'>7</td><td class='n'>3,07</td><td class='n' style='color:var(--ink3)'>4,21</td></tr><tr><td>iOS 101</td><td class='n'>70.640</td><td class='n'>4</td><td class='n'><b>0,57</b></td><td class='n'>5</td><td class='n'>0,71</td><td class='n' style='color:var(--ink3)'>0,50</td></tr><tr><td>iOS 102</td><td class='n'>94.584</td><td class='n'>2</td><td class='n'><b>0,21</b></td><td class='n'>2</td><td class='n'>0,21</td><td class='n' style='color:var(--ink3)'>0,21</td></tr><tr><td>iOS 103</td><td class='n'>104.472</td><td class='n'>5</td><td class='n'><b>0,48</b></td><td class='n'>7</td><td class='n'>0,67</td><td class='n' style='color:var(--ink3)'>1,43</td></tr><tr><td>iOS 104</td><td class='n'>7.649</td><td class='n'>0</td><td class='n'><b>0,00</b></td><td class='n'>3</td><td class='n'>3,92</td><td class='n' style='color:var(--ink3)'>–</td></tr></tbody></table></div>
+<ul>
+<li><b>iOS:</b> bản 103 (0,48) không cao hơn 101 (0,57). Con số 1,43 trong report cũ là do QA test bản 103.</li>
+<li><b>Android:</b> bản 103 vẫn cao nhất (2,63, so với 1,28 ở bản 102 và 0,95 ở bản 101). Nhưng chỉ có 6 case nên chưa chắc chắn (p ≈ 0,12). Vẫn nên review thay đổi save/auth của Android 102 → 103.</li>
+<li><b>iOS 104:</b> 3 case ngày 29/09, đều trong session đầu tiên sau khi cài và account cũ đều quay lại được. Đây là lỗi "tạo 2 user_id lúc cài mới" đã nêu trong report cũ, không phải mất tiến trình.</li>
+</ul>
+</section>
+
+<section class="card"><h2><span class="num">4</span>Phương pháp và giới hạn</h2>
+<ul>
+<li>Đầu vào là 124 case trong <code>slots_vacation_account_reset_cases.csv</code> (report 07/10).</li>
+<li>Thông tin thiết bị lấy từ bảng events_* còn giữ (09/08 – 07/10): <code>app_info.install_source</code>, <code>app_info.version</code>, <code>debug_event</code>, <code>geo.country</code>, <code>device.language</code>. Thông tin uid lấy theo cả old_uid và new_uid.</li>
+<li>Case được xếp vào QA nếu thiết bị có trên 50% event là <code>debug_event=1</code>, hoặc cài bằng manual_install, hoặc chạy version .DEV, hoặc uid từng dùng trên máy QA. Case được xếp vào VN nếu quốc gia là Vietnam hoặc ngôn ngữ là vi-*/*-vn.</li>
+<li>Có 1 thiết bị (<code>8E3AAB1A…</code>, 07/08) không còn event nào. Case này được xếp vào QA vì uid cũ của nó có trên máy QA.</li>
+<li>Session của version 103 trên Android ít (22.831), nên tỷ lệ của bản này dao động nhiều.</li>
+</ul>
+<p class="foot">Files: <code>slots_vacation_account_reset_cases_clean.csv</code> (56 case user thật), <code>slots_vacation_account_reset_cases_classified.csv</code> (đủ 124 case, kèm cột group và reasons).</p>
+</section>
+</div></body></html>
